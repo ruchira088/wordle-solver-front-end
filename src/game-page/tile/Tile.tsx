@@ -1,6 +1,6 @@
 import React from "react"
 import {TileState, TileStatus} from "../Models"
-import styles from "./Tile.module.css"
+import styles from "./Tile.module.scss"
 import classNames from "classnames"
 
 const Tile = (props: { tileState: TileState, onTileClick: (tile: TileState) => void }) => {

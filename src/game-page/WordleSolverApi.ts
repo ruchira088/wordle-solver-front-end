@@ -1,7 +1,7 @@
 import {GridState, TileState, TileStatus} from "./Models"
 
 const API_URL = process.env.API_URL || "http://localhost:8000"
-const RESULT_COUNT = 5
+const RESULT_COUNT = 10
 
 interface WordleConstraints {
     readonly length: number

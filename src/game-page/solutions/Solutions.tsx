@@ -1,22 +1,23 @@
 import React from "react"
-import {Bar, BarChart, XAxis, YAxis} from "recharts"
 import {PossibleSolution} from "../WordleSolverApi"
-import styles from "./Solutions.module.css"
+import styles from "./Solutions.module.scss"
 
-const Solutions = (props: {solutions: PossibleSolution[]}) => {
-    if (props.solutions.length === 0) {
-        return (
-            <div></div>
-        )
-    } else {
-        return (
-            <BarChart className={styles.barChart} width={400} height={400} data={props.solutions}>
-                <XAxis dataKey="word"/>
-                <YAxis/>
-                <Bar dataKey="score" fill="#538d4e"/>
-            </BarChart>
-        )
-    }
-}
+const Solutions = (props: {solutions: PossibleSolution[]}) => (
+    <table className={styles.solutionsTable}>
+        <tr>
+            <th>Word</th>
+            <th>Score</th>
+        </tr>
+        {
+            props.solutions
+                .map((solution, index) =>
+                    <tr key={index}>
+                        <td>{solution.word}</td>
+                        <td>{solution.score}</td>
+                    </tr>
+                )
+        }
+    </table>
+)
 
 export default Solutions

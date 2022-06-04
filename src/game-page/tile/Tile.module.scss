@@ -1,0 +1,35 @@
+$grey: #3a3a3c;
+$yellow: #b59f3b;
+$green: #538d4e;
+
+.tile {
+    display: inline-block;
+    text-transform: uppercase;
+    color: white;
+    width: 2em;
+    height: 2em;
+    font-size: 3em;
+    text-align: center;
+    border: solid 0.07em $grey;
+    margin: 0.025em 0.05em;
+    transition: background-color 250ms;
+
+    &.unknown {
+        background-color: black;
+    }
+
+    &.unused {
+        color: white;
+        background-color: $grey;
+    }
+
+    &.notInPosition {
+        color: white;
+        background-color: $yellow;
+    }
+
+    &.inPosition {
+        color: white;
+        background-color: $green;
+    }
+}

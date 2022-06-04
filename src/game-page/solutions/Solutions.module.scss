@@ -1,0 +1,21 @@
+.solutionsTable {
+    border-collapse: collapse;
+
+    tr:nth-child(even) {
+        background-color: lightgray;
+    }
+
+    td, th {
+        border: 1px solid black;
+        padding: 0.5em;
+        text-align: left;
+    }
+
+    th {
+        font-size: 1.5em;
+    }
+
+    td {
+        text-transform: uppercase;
+    }
+}
