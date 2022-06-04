@@ -1,0 +1,27 @@
+.tile {
+    display: inline-block;
+    color: white;
+    width: 2em;
+    height: 2em;
+    font-size: 3em;
+    text-align: center;
+}
+
+.unknown {
+    background-color: black;
+}
+
+.unused {
+    color: white;
+    background-color: #3a3a3c;
+}
+
+.notInPosition {
+    color: white;
+    background-color: #b59f3b;
+}
+
+.inPosition {
+    color: white;
+    background-color: #538d4e;
+}
