@@ -9,7 +9,7 @@ interface WordleConstraints {
     readonly inPosition: {[key: number]: string}
 }
 
-interface PossibleSolution {
+export interface PossibleSolution {
     readonly word: string
     readonly score: number
 }
