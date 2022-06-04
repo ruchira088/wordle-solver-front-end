@@ -1,12 +1,14 @@
 import {GridState, TileState, TileStatus} from "./Models"
 
 const API_URL = process.env.API_URL || "http://localhost:8000"
+const RESULT_COUNT = 5
 
 interface WordleConstraints {
     readonly length: number
     readonly excludedLetters: string[]
-    readonly notInPosition: {[key: number]: string[]},
+    readonly notInPosition: {[key: number]: string[]}
     readonly inPosition: {[key: number]: string}
+    readonly limit: number
 }
 
 export interface PossibleSolution {
@@ -52,6 +54,7 @@ export const transformToWordleConstraints =
                 .filter(char => applicableLetters.indexOf(char) === -1)
 
         return {
+            limit: RESULT_COUNT,
             length: gridState.dimensions.x,
             excludedLetters,
             notInPosition,

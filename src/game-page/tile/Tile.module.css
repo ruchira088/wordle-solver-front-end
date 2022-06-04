@@ -1,5 +1,6 @@
 .tile {
     display: inline-block;
+    text-transform: uppercase;
     color: white;
     width: 2em;
     height: 2em;
