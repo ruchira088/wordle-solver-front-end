@@ -1,11 +1,6 @@
 - name: Fetch git information
   import_tasks: tasks/git-info.yml
 
-- name: Create output directory
-  file:
-    path: k8s-output
-    state: directory
-
 - name: Create K8s config
   copy:
     dest: k8s-output/kubeconfig
