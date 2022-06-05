@@ -1,4 +1,4 @@
-@use "./src/Colors.module";
+@use "./src/index";
 
 $size: 1.5em;
 
@@ -19,23 +19,23 @@ $size: 1.5em;
     border: 0.05em solid;
 
     &.unknown {
-        background-color: Colors.$black;
-        border-color: Colors.$grey;
+        background-color: index.$black;
+        border-color: index.$grey;
     }
 
     &.unused {
-        background-color: Colors.$grey;
-        border-color: Colors.$grey;
+        background-color: index.$grey;
+        border-color: index.$grey;
     }
 
     &.notInPosition {
-        background-color: Colors.$yellow;
-        border-color: Colors.$yellow;
+        background-color: index.$yellow;
+        border-color: index.$yellow;
     }
 
     &.inPosition {
-        background-color: Colors.$green;
-        border-color: Colors.$green;
+        background-color: index.$green;
+        border-color: index.$green;
     }
 
     &.empty {
