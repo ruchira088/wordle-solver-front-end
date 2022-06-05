@@ -1,6 +1,6 @@
 import {GridState, TileState, TileStatus} from "./Models"
 
-const API_URL = process.env.API_URL || "http://localhost:8000"
+const API_URL = process.env.REACT_APP_API_URL || "https://wordle-solver-api.dev.ruchij.com"
 const RESULT_COUNT = 10
 
 interface WordleConstraints {

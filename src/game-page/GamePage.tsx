@@ -1,4 +1,4 @@
-import React, {ReactElement, useEffect, useState} from "react"
+import React, {useEffect, useState} from "react"
 import {useLocation} from "react-router-dom"
 import {Just, Maybe, None} from "monet"
 import {DEFAULT_ATTEMPTS, DEFAULT_LETTER_COUNT} from "../home-page/HomePage"

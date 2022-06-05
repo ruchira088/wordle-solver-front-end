@@ -1,0 +1,15 @@
+- name: Fetch git information
+  import_tasks: tasks/git-info.yml
+
+- name: Create output directory
+  file:
+    path: k8s-output
+    state: directory
+
+- name: Create K8s config
+  copy:
+    dest: k8s-output/kubeconfig
+    content: "{{ lookup('aws_ssm', '/infrastructure/dev/k8s/config', region='ap-southeast-2') }}"
+
+- set_fact:
+    kube_config: k8s-output/kubeconfig

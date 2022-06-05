@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import {useNavigate} from "react-router-dom"
 
 export const DEFAULT_LETTER_COUNT = 5
-export const DEFAULT_ATTEMPTS = 5
+export const DEFAULT_ATTEMPTS = 6
 
 const HomePage = () => {
     const navigate = useNavigate()
