@@ -3,22 +3,17 @@
   "name": "Wordle Solver",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "logo32.png",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "type": "image/png"
     },
     {
       "src": "logo192.png",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512 192x192"
     }
   ],
-  "start_url": ".",
+  "start_url": "https://wordle-solver.dev.ruchij.com",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
