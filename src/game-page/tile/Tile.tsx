@@ -11,7 +11,9 @@ const Tile = (props: { tileState: TileState, onTileClick: (tile: TileState) => v
             [styles.unknown]: tileStatus === TileStatus.Unknown,
             [styles.unused]: tileStatus === TileStatus.Unused,
             [styles.notInPosition]: tileStatus === TileStatus.NotInPosition,
-            [styles.inPosition]: tileStatus === TileStatus.InPosition
+            [styles.inPosition]: tileStatus === TileStatus.InPosition,
+            [styles.empty]: props.tileState.value.isNone(),
+            [styles.nonEmpty]: props.tileState.value.isSome()
         })
 
     return (
