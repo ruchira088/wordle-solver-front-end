@@ -1,6 +1,4 @@
-$grey: #adadad;
-$yellow: #b59f3b;
-$green: #538d4e;
+@use "./src/Colors.module";
 
 $size: 1.5em;
 
@@ -15,27 +13,29 @@ $size: 1.5em;
     font-size: 2 * $size;
     font-weight: bold;
     text-align: center;
-    margin: 0.03em;
+    margin: 0.07em;
     transition: background-color 250ms;
     user-select: none;
+    border: 0.05em solid;
 
     &.unknown {
-        background-color: black;
+        background-color: Colors.$black;
+        border-color: Colors.$grey;
     }
 
     &.unused {
-        color: white;
-        background-color: $grey;
+        background-color: Colors.$grey;
+        border-color: Colors.$grey;
     }
 
     &.notInPosition {
-        color: white;
-        background-color: $yellow;
+        background-color: Colors.$yellow;
+        border-color: Colors.$yellow;
     }
 
     &.inPosition {
-        color: white;
-        background-color: $green;
+        background-color: Colors.$green;
+        border-color: Colors.$green;
     }
 
     &.empty {

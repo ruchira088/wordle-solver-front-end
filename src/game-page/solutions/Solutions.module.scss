@@ -1,12 +1,20 @@
+@use "./src/Colors.module";
+
 .solutionsTable {
     border-collapse: collapse;
 
     tr:nth-child(even) {
-        background-color: lightgray;
+        background-color: Colors.$grey;
+        color: Colors.$black;
+    }
+
+    tr:nth-child(odd) {
+        background-color: Colors.$black;
+        color: white;
     }
 
     td, th {
-        border: 1px solid black;
+        border: 1px solid Colors.$grey;
         padding: 0.5em;
         text-align: left;
     }
