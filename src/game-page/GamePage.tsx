@@ -43,7 +43,7 @@ const GamePage = () => {
             })))
             setCursor(previous)
         } else if (isLetter(key) && cursor.x < letterCount) {
-            setGridState(updateTile(gridState, cursor, tileState => ({...tileState, value: Just(key)})))
+            setGridState(updateTile(gridState, cursor, tileState => ({...tileState, value: Just(key.toLowerCase())})))
             setCursor({x: cursor.x + 1, y: cursor.y})
         }
     }
