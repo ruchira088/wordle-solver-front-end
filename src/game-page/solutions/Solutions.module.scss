@@ -16,7 +16,8 @@
     td, th {
         border: 1px solid index.$grey;
         padding: 0.5em;
-        text-align: left;
+        text-align: center;
+        min-width: 5em;
     }
 
     th {

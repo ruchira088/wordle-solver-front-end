@@ -6,6 +6,7 @@ import {Coordinate, createGrid, GridState, nextTileStatus, TileState, TileStatus
 import Grid from "./grid/Grid"
 import {possibleMatches, PossibleSolution, transformToWordleConstraints} from "./WordleSolverApi"
 import Solutions from "./solutions/Solutions"
+import styles from "./GamePage.module.scss"
 
 const GamePage = () => {
     const queryParams = new URLSearchParams(useLocation().search)
@@ -58,11 +59,13 @@ const GamePage = () => {
     })
 
     return (
-        <div>
-            <Grid gridState={gridState} onTileClick={onTileClick}/>
-            {
-                solutions.map(value => <Solutions solutions={value}/>).orNull()
-            }
+        <div className={styles.gamePage}>
+            <div className={styles.column}>
+                <Grid gridState={gridState} onTileClick={onTileClick}/>
+            </div>
+            <div className={styles.column}>
+                { solutions.map(value => <Solutions solutions={value}/>).orNull() }
+            </div>
         </div>
     )
 }
