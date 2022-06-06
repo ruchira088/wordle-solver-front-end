@@ -1,8 +1,19 @@
 @use "./src/index";
 
+@media (min-width: index.$small) {
+    .solutionsTable {
+        margin: 1em auto -15.63em;
+    }
+}
+
+@media (max-width: index.$small) {
+    .solutionsTable {
+        margin: 1em auto;
+    }
+}
+
 .solutionsTable {
     border-collapse: collapse;
-    margin: auto;
 
     tr:nth-child(even) {
         background-color: index.$grey;

@@ -8,20 +8,20 @@
 
 @media (min-width: index.$small) {
   .keyboard {
-    padding: 15%;
+    margin-top: 17em;
   }
 }
 
 @media (max-width: index.$small) {
   .keyboard {
-    padding: 5%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 1em;
   }
 }
 
 .keyboard {
   text-transform: uppercase;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
