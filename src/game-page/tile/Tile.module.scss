@@ -1,20 +1,32 @@
 @use "./src/index";
 
-$size: 1.5em;
+@media (max-width: index.$small) {
+    .tile {
+        $size: 1.3em;
+        width: $size;
+        height: $size;
+        font-size: 2 * $size;
+    }
+}
+
+@media (min-width: index.$small) {
+    .tile {
+        $size: 1.5em;
+        width: $size;
+        height: $size;
+        font-size: 2 * $size;
+    }
+}
 
 .tile {
     display: inline-flex;
     text-transform: uppercase;
     color: white;
-    width: $size;
-    height: $size;
     justify-content: center;
     align-items: center;
-    font-size: 2 * $size;
     font-weight: bold;
     text-align: center;
     margin: 0.07em;
-    transition: background-color 250ms;
     user-select: none;
     border: 0.05em solid;
 

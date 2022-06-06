@@ -4,10 +4,13 @@ import styles from "./Solutions.module.scss"
 
 const Solutions = (props: {solutions: PossibleSolution[]}) => (
     <table className={styles.solutionsTable}>
-        <tr>
-            <th>Word</th>
-            <th>Score</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>Word</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
         {
             props.solutions
                 .map((solution, index) =>
@@ -17,6 +20,7 @@ const Solutions = (props: {solutions: PossibleSolution[]}) => (
                     </tr>
                 )
         }
+        </tbody>
     </table>
 )
 

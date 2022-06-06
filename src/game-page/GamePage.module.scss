@@ -1,7 +1,27 @@
-.gamePage {
-  display: flex;
+@use "src/index";
+
+.gamePageBody {
 }
 
-.column {
-  flex: 50%;
+.row {
+}
+
+@media (min-width: index.$small) {
+  .keyboard {
+    padding: 15%;
+  }
+}
+
+@media (max-width: index.$small) {
+  .keyboard {
+    padding: 5%;
+  }
+}
+
+.keyboard {
+  text-transform: uppercase;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

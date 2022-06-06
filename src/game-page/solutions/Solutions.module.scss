@@ -2,6 +2,7 @@
 
 .solutionsTable {
     border-collapse: collapse;
+    margin: auto;
 
     tr:nth-child(even) {
         background-color: index.$grey;
