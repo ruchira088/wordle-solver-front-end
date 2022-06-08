@@ -57,6 +57,22 @@ const GamePage = () => {
         }
     }
 
+    const onSolutionClick = (word: string) => {
+        const updatedGrid =
+            word.split("")
+                .reduce(
+                    (grid, char, index) =>
+                        updateTile(grid, {x: index, y: cursor.y}, tileState => ({
+                            ...tileState,
+                            value: Just(char.toLowerCase())
+                        })),
+                    gridState
+                )
+
+        setGridState(updatedGrid)
+        setCursor({x: word.length, y: cursor.y})
+    }
+
     useEffect(() => {
         const keyDownHandler = (event: KeyboardEvent) => onKeyDown(event.key)
         document.addEventListener("keydown", keyDownHandler)
@@ -70,12 +86,13 @@ const GamePage = () => {
                     <Grid gridState={gridState} onTileClick={onTileClick}/>
                 </div>
                 <div className={styles.row}>
-                    { solutions.map(value => <Solutions solutions={value}/>).orNull() }
+                    {solutions.map(value => <Solutions solutions={value} onClick={onSolutionClick}/>).orNull()}
                 </div>
             </div>
             <div>
                 <div className={styles.keyboard}>
-                    <Keyboard onKeyPress={onKeyDown} physicalKeyboardHighlight={true} layout={keyboardLayout} display={keyboardDisplay}/>
+                    <Keyboard onKeyPress={onKeyDown} physicalKeyboardHighlight={true} layout={keyboardLayout}
+                              display={keyboardDisplay}/>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ import React from "react"
 import {PossibleSolution} from "../WordleSolverApi"
 import styles from "./Solutions.module.scss"
 
-const Solutions = (props: {solutions: PossibleSolution[]}) => (
+const Solutions = (props: {solutions: PossibleSolution[], onClick: (word: string) => void}) => (
     <table className={styles.solutionsTable}>
         <thead>
             <tr>
@@ -14,7 +14,7 @@ const Solutions = (props: {solutions: PossibleSolution[]}) => (
         {
             props.solutions
                 .map((solution, index) =>
-                    <tr key={index}>
+                    <tr key={index} onClick={() => props.onClick(solution.word)}>
                         <td>{solution.word}</td>
                         <td>{solution.score}</td>
                     </tr>
