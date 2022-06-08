@@ -26,12 +26,14 @@ const GamePage = () => {
     const [gridState, setGridState] = useState<GridState>(createGrid(attempts, letterCount))
     const [cursor, setCursor] = useState<Coordinate>({x: 0, y: 0})
     const [solutions, setSolutions] = useState<Maybe<PossibleSolution[]>>(None())
+    const [showSolutions, setShowSolutions] = useState<boolean>(false)
 
     const onKeyDown = async (key: string) => {
         if (key === "Enter" && cursor.x === letterCount && cursor.y < attempts - 1) {
             setCursor({x: 0, y: cursor.y + 1})
             const words: PossibleSolution[] = await possibleMatches(transformToWordleConstraints(gridState))
             setSolutions(Just(words))
+            setShowSolutions(true)
         } else if (key === "Backspace" && !(cursor.x === 0 && cursor.y === 0)) {
             const previous =
                 cursor.x === 0 ? {x: letterCount - 1, y: cursor.y - 1} : {x: cursor.x - 1, y: cursor.y}
@@ -71,6 +73,7 @@ const GamePage = () => {
 
         setGridState(updatedGrid)
         setCursor({x: word.length, y: cursor.y})
+        setShowSolutions(false)
     }
 
     useEffect(() => {
@@ -85,8 +88,16 @@ const GamePage = () => {
                 <div className={styles.row}>
                     <Grid gridState={gridState} onTileClick={onTileClick}/>
                 </div>
-                <div className={styles.row}>
-                    {solutions.map(value => <Solutions solutions={value} onClick={onSolutionClick}/>).orNull()}
+                <div>
+                    {
+                        solutions
+                            .filter(() => showSolutions)
+                            .map(values =>
+                                <Solutions solutions={values} onClick={onSolutionClick}
+                                                      onClose={() => setShowSolutions(false)}/>
+                            )
+                            .orNull()
+                    }
                 </div>
             </div>
             <div>

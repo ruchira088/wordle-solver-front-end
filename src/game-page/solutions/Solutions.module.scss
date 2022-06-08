@@ -1,16 +1,30 @@
 @use "./src/index";
 
-@media (min-width: index.$small) {
-    .solutionsTable {
-        margin: 1em auto -15.63em;
-        height: 14.5em;
-    }
+.solutionsContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
-@media (max-width: index.$small) {
-    .solutionsTable {
-        margin: 1em auto;
-    }
+.solutionsBody {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.close {
+    text-align: right;
+}
+
+.closeIcon {
+    height: 3em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
 }
 
 .solutionsTable {
