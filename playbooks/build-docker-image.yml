@@ -4,4 +4,6 @@
 
   tasks:
     - name: Build production Docker image
-      import_tasks: tasks/build-docker.yml
+      import_tasks: tasks/build-and-publish-docker-image.yml
+      vars:
+        publish: false
