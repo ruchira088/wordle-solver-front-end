@@ -1,13 +1,13 @@
 import {GridState, TileState, TileStatus} from "./Models"
+import {Maybe} from "monet"
 
-const API_URL = process.env.REACT_APP_API_URL || "https://wordle-solver-api.dev.ruchij.com"
 const RESULT_COUNT = 5
 
 interface WordleConstraints {
     readonly length: number
     readonly excludedLetters: string[]
-    readonly notInPosition: {[key: number]: string[]}
-    readonly inPosition: {[key: number]: string}
+    readonly notInPosition: { [key: number]: string[] }
+    readonly inPosition: { [key: number]: string }
     readonly limit: number
 }
 
@@ -24,7 +24,7 @@ export const transformToWordleConstraints =
 
         const notInPosition: { [key: number]: string[] } =
             filterMapByStatus(TileStatus.NotInPosition)
-                .reduce<{[key: number]: string[]}>(
+                .reduce<{ [key: number]: string[] }>(
                     (result, tileState) =>
                         ({
                             ...result,
@@ -35,7 +35,7 @@ export const transformToWordleConstraints =
 
         const inPosition: { [key: number]: string } =
             filterMapByStatus(TileStatus.InPosition)
-                .reduce<{[key: number]: string}>(
+                .reduce<{ [key: number]: string }>(
                     (result, tileState) =>
                         ({
                             ...result,
@@ -66,9 +66,23 @@ const filterTiles =
     (gridState: GridState, filter: (tileState: TileState) => boolean): TileState[] =>
         gridState.rows.flatMap(row => row.tiles.filter(filter))
 
+const apiUrl =
+    (): string =>
+        Maybe.fromFalsy(process.env.REACT_APP_API_URL)
+            .orLazy(() => {
+                    const {origin} = window.location
+
+                    if (origin.indexOf("wordle-solver") !== -1) {
+                        return window.location.origin.replace("wordle-solver", "wordle-solver-api")
+                    } else {
+                        return "https://wordle-solver-api.home.ruchij.com"
+                    }
+                }
+            )
+
 export const possibleMatches =
     async (wordleConstraints: WordleConstraints): Promise<PossibleSolution[]> => {
-        const response = await fetch(`${API_URL}/solutions`, {
+        const response = await fetch(`${apiUrl()}/solutions`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -76,7 +90,7 @@ export const possibleMatches =
             body: JSON.stringify(wordleConstraints)
         })
 
-        const { solutions }: { solutions: PossibleSolution[] } = await response.json()
+        const {solutions}: { solutions: PossibleSolution[] } = await response.json()
 
-        return solutions;
+        return solutions
     }
