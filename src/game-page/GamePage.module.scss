@@ -1,25 +1,10 @@
 @use "src/index";
 
-.gamePageBody {
-}
-
-.row {
-}
-
-@media (min-width: index.$small) {
-  .keyboard {
-    margin-top: 17em;
-  }
-}
-
-@media (max-width: index.$small) {
-  .keyboard {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 1em;
-  }
+.gamePage {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-evenly;
 }
 
 .keyboard {

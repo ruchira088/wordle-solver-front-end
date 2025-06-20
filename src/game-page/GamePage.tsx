@@ -2,13 +2,15 @@ import React, {useEffect, useState} from "react"
 import {useLocation} from "react-router-dom"
 import {Just, Maybe, None} from "monet"
 import Keyboard from "react-simple-keyboard"
-import {DEFAULT_ATTEMPTS, DEFAULT_LETTER_COUNT} from "../home-page/HomePage"
 import {Coordinate, createGrid, GridState, nextTileStatus, TileState, TileStatus, updateTile} from "./Models"
 import Grid from "./grid/Grid"
 import {possibleMatches, PossibleSolution, transformToWordleConstraints} from "./WordleSolverApi"
 import Solutions from "./solutions/Solutions"
 import styles from "./GamePage.module.scss"
 import "react-simple-keyboard/build/css/index.css"
+
+export const DEFAULT_LETTER_COUNT = 5
+export const DEFAULT_ATTEMPTS = 6
 
 const GamePage = () => {
     const queryParams = new URLSearchParams(useLocation().search)
@@ -83,7 +85,7 @@ const GamePage = () => {
     })
 
     return (
-        <div>
+        <div className={styles.gamePage}>
             <div className={styles.gamePageBody}>
                 <div className={styles.row}>
                     <Grid gridState={gridState} onTileClick={onTileClick}/>
